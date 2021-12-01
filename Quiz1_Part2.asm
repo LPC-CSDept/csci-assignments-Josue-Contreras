@@ -12,7 +12,7 @@ txt1:	.asciiz "A:"
 txt2:	.asciiz "B:"
 txt3:	.asciiz "C:"
 txt4:	.asciiz "X:"
-txt5:	.asciiz "AX^2 + BX + C:"
+txt5:	.asciiz "AX^2 + BX + C = "
 
 	.text
 	.globl main

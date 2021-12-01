@@ -31,7 +31,7 @@ main:
 	cvt.s.w	$f5, $f4	# converts Fahrenheit to float val
 	
 	l.s	$f1, val1	# Celcius = ((Fahrenheit-32.0) * 5.0 )/ 9.0	
-	l.s 	$f2, val2	
+	l.s 	$f2, val2	# Celcius = ((Fahrenheit-val1) * val2)/ val3
 	l.s 	$f3, val3
 	
 	sub.s 	$f4, $f5, $f1	# $f4 = (Fahrenheit - 32.0)

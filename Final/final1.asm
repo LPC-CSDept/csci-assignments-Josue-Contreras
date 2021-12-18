@@ -26,8 +26,8 @@ rd_wait:
         lw      $t2, 4($t1)             # Read data from reciever data to $t2
 
         sub	$t2, $t2, 48            # Subtract $t2 by 48 convert from ASCII to int 
-        mul	$t2, $t2, $t0            # Multiply $t2 but the multiplyer from $t0
-        div	$t0, $t0, 10	        # Divide $t0 to decrease place value
+        mul	$t2, $t2, $t0           # Multiply $t2 buy the multiplyer from $t0
+        div	$t0, $t0, 10	        # Divide $t0 to decrease place value of multiplier
         add	$t3, $t3, $t2           # Add current digit values
 
         bnez    $t0, rd_wait            # if not on the last place (0) poll for next digit

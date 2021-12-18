@@ -24,5 +24,20 @@ rd_wait:
         andi	$t1, $t1, 1             # Clear all bits of except for LSB
         beqz    $t1, rd_wait            # If not ready(0), restart, otherwise(1) continue to calculation
         lw      $t2, 4($t1)             # Read data from reciever data to $t2
-output: 
-        
+
+        sub	$t2, $t2, 48            # Subtract $t2 by 48 convert from ASCII to int 
+        mul	$t2, $t2, $t0           # Multiply $t2 but the multiplyer from $t0
+        div	$t0, $t0, 10	        # Divide $t0 to decrease place value
+        add	$t3, $t3, $t2           # Add current digit values
+
+        bnez    $t0, rd_wait            # if not on the last place (0) poll for next digit
+
+        la      $a0, txt2               # Address of the exit number prompt
+        syscall                         # Print message
+
+        move    $a0, $t4                # Move output to argument register 
+        li      $v0, 1                  # Print int syscall code
+        syscall                         # Print int 
+
+        li      $v0, 10                 # Exit syscall code
+        syscall

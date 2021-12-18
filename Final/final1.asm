@@ -35,7 +35,7 @@ rd_wait:
         la      $a0, txt2               # Address of the exit number prompt
         syscall                         # Print message
 
-        move    $a0, $t0                # Move output to argument register 
+        move    $a0, $t3                # Move output to argument register 
         li      $v0, 1                  # Print int syscall code
         syscall                         # Print int 
 
